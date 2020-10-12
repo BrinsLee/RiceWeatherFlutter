@@ -12,7 +12,6 @@ class FetchWeatherDataEvent extends WeatherEvent{
 
   const FetchWeatherDataEvent(this.cityModel);
   @override
-  // TODO: implement props
   List<Object> get props => [cityModel];
 
 }

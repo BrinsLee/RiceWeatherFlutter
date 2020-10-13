@@ -1,3 +1,4 @@
+import 'package:amap_location_fluttify/amap_location_fluttify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
@@ -19,6 +20,11 @@ class CityBloc extends Bloc<CityEvent, CityState> {
     if (event is FetchWeatherDataEvent) {
     } else if (event is RequestLocationEvent) {
       showAppDialog();
+      weatherPrint("开始定位");
+      Location location = await AmapLocation.instance.fetchLocation();
+      weatherPrint("定位结束: $location");
+      
+
     }
   }
 }

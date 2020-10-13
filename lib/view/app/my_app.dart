@@ -1,9 +1,11 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rice_weather/view/common/loading_dialog.dart';
 import 'package:rice_weather/view/pages/home/home_page.dart';
 
 GlobalKey globalKey = GlobalKey();
+EventBus eventBus = EventBus();
 
 void showAppDialog({String loadingMsg = "正在加载中..."}) {
   showDialog<LoadingDialog>(

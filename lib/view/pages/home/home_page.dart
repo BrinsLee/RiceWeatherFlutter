@@ -86,7 +86,8 @@ class _HomePageState extends State<HomePage>
     await Future.delayed(Duration(seconds: 2));
     var permissionState = await LocationPermissions().checkPermissionStatus();
     if (permissionState != PermissionStatus.granted) {
-      permissionState = await LocationPermissions().requestPermissions(permissionLevel: LocationPermissionLevel.locationWhenInUse);
+      permissionState = await LocationPermissions().requestPermissions(
+          permissionLevel: LocationPermissionLevel.locationWhenInUse);
       if (permissionState == PermissionStatus.granted) {
         await Future.delayed(Duration(seconds: 1));
         setState(() {

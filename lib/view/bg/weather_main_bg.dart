@@ -26,17 +26,16 @@ class _WeatherMainBgState extends State<WeatherMainBg>
 
   @override
   void initState() {
-    _controller = AnimationController(duration: Duration(microseconds: 300), vsync: this)
+    _controller =
+        AnimationController(duration: Duration(microseconds: 300), vsync: this);
     CurvedAnimation(parent: _controller, curve: Curves.bounceIn);
-    _controller.addListener(() { 
+    _controller.addListener(() {
       setState(() {
         _value = _controller.value;
       });
     });
     _subscription = eventBus.on().listen((event) {
-      if(event is ChangeMainAppBarIndexEvent){
-        
-      }
+      if (event is ChangeMainAppBarIndexEvent) {}
     });
     super.initState();
   }

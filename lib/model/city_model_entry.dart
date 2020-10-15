@@ -36,6 +36,5 @@ class CityModel extends Equatable {
   Map<String, dynamic> toJson() => _$CityModelToJson(this);
 
   @override
-  // TODO: implement props
   List<Object> get props => [latitude, longitude];
 }

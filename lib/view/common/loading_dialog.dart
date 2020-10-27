@@ -4,9 +4,10 @@ class LoadingDialog extends Dialog {
   final String text;
 
   LoadingDialog({this.text});
-
+  Function dismiss;
   @override
   Widget build(BuildContext context) {
+    dismiss = () => Navigator.of(context).pop();
     return Material(
       type: MaterialType.transparency,
       child: Center(

@@ -6,17 +6,24 @@ import 'package:rice_weather/view/pages/home/home_page.dart';
 
 GlobalKey globalKey = GlobalKey();
 EventBus eventBus = EventBus();
+LoadingDialog loading;
 
 void showAppDialog({String loadingMsg = "正在加载中..."}) {
+  loading = new LoadingDialog(
+    text: loadingMsg,
+  );
   showDialog<LoadingDialog>(
       context: globalKey.currentContext,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return new LoadingDialog(
-          text: loadingMsg,
-        );
+        return loading;
       });
 }
+
+void hideAppDialog() {
+  loading.dismiss();
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

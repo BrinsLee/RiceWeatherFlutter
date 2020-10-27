@@ -27,14 +27,15 @@ class CityBloc extends Bloc<CityEvent, CityState> {
       print("开始定位");
       Location location = await AmapLocation.instance.fetchLocation();
       print("定位结束: $location");
+      hideAppDialog();
       CityModel cityModel = convert(location);
       cityModel.displayedName = WeatherUtil.getCityName(cityModel);
       List<CityModel> cityModels = [];
       if (cityModel.latitude != 0.0 && cityModel.longitude != 0.0) {
         cityModels = await insertCityModel(cityModel);
-  
       }
-      
+      print('定位成功 location: $cityModel');
+      eventBus.fire(event)
     }
   }
 
